@@ -91,6 +91,7 @@
 				D10C892E2124EF7F0030F3F1 /* NotebooksListViewController.swift */,
 				D10C89542124F3750030F3F1 /* NoteDetailsViewController.swift */,
 				D10C89562124F3A00030F3F1 /* NotesListViewController.swift */,
+				D10C895821265FC00030F3F1 /* Views */,
 				D10C89302124EF7F0030F3F1 /* Main.storyboard */,
 				D10C89332124EF800030F3F1 /* Assets.xcassets */,
 				D10C89352124EF800030F3F1 /* LaunchScreen.storyboard */,
@@ -130,6 +131,13 @@
 			children = (
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D10C895821265FC00030F3F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
