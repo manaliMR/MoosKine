@@ -17,6 +17,10 @@
 		D10C89512124F1050030F3F1 /* Note+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C89502124F1050030F3F1 /* Note+Extensions.swift */; };
 		D10C89552124F3750030F3F1 /* NoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C89542124F3750030F3F1 /* NoteDetailsViewController.swift */; };
 		D10C89572124F3A00030F3F1 /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C89562124F3A00030F3F1 /* NotesListViewController.swift */; };
+		D10C895A2128A1640030F3F1 /* DataContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C89592128A1640030F3F1 /* DataContoller.swift */; };
+		D10C895D2128A1B50030F3F1 /* NotebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C895C2128A1B50030F3F1 /* NotebookCell.swift */; };
+		D10C895F2128A1CD0030F3F1 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C895E2128A1CD0030F3F1 /* NoteCell.swift */; };
+		D10C89622128A2200030F3F1 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C89612128A2200030F3F1 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		D10C89502124F1050030F3F1 /* Note+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extensions.swift"; sourceTree = "<group>"; };
 		D10C89542124F3750030F3F1 /* NoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewController.swift; sourceTree = "<group>"; };
 		D10C89562124F3A00030F3F1 /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
+		D10C89592128A1640030F3F1 /* DataContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContoller.swift; sourceTree = "<group>"; };
+		D10C895C2128A1B50030F3F1 /* NotebookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookCell.swift; sourceTree = "<group>"; };
+		D10C895E2128A1CD0030F3F1 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		D10C89612128A2200030F3F1 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 				D10C89542124F3750030F3F1 /* NoteDetailsViewController.swift */,
 				D10C89562124F3A00030F3F1 /* NotesListViewController.swift */,
 				D10C895821265FC00030F3F1 /* Views */,
+				D10C89602128A1DB0030F3F1 /* Protocols */,
 				D10C89302124EF7F0030F3F1 /* Main.storyboard */,
 				D10C89332124EF800030F3F1 /* Assets.xcassets */,
 				D10C89352124EF800030F3F1 /* LaunchScreen.storyboard */,
@@ -122,6 +131,7 @@
 			children = (
 				D10C894E2124F01E0030F3F1 /* Notebook+Extenxions.swift */,
 				D10C89502124F1050030F3F1 /* Note+Extensions.swift */,
+				D10C89592128A1640030F3F1 /* DataContoller.swift */,
 			);
 			path = "Managed Object Extensions";
 			sourceTree = "<group>";
@@ -136,8 +146,26 @@
 		D10C895821265FC00030F3F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D10C895B2128A17A0030F3F1 /* Cells */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D10C895B2128A17A0030F3F1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D10C895C2128A1B50030F3F1 /* NotebookCell.swift */,
+				D10C895E2128A1CD0030F3F1 /* NoteCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D10C89602128A1DB0030F3F1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D10C89612128A2200030F3F1 /* Cell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,11 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D10C895A2128A1640030F3F1 /* DataContoller.swift in Sources */,
 				D10C892F2124EF7F0030F3F1 /* NotebooksListViewController.swift in Sources */,
 				D10C89512124F1050030F3F1 /* Note+Extensions.swift in Sources */,
 				D10C894F2124F01E0030F3F1 /* Notebook+Extenxions.swift in Sources */,
 				D10C89552124F3750030F3F1 /* NoteDetailsViewController.swift in Sources */,
 				D10C89572124F3A00030F3F1 /* NotesListViewController.swift in Sources */,
+				D10C895F2128A1CD0030F3F1 /* NoteCell.swift in Sources */,
+				D10C89622128A2200030F3F1 /* Cell.swift in Sources */,
+				D10C895D2128A1B50030F3F1 /* NotebookCell.swift in Sources */,
 				D10C892D2124EF7F0030F3F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
