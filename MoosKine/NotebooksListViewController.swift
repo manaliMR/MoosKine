@@ -204,4 +204,5 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
             tableView.endUpdates()
         }
 }
+}
 
