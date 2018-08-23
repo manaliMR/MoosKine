@@ -41,15 +41,18 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
         setupFetchedResultsController()
     }
     
-    overide func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupFetchResultController()
-        if let indexpath = tableView.indexPathForSelectedRow {
+        
+        setupFetchedResultsController()
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
+    }
         
-        override func viewDidDisappear(_ animated: Bool) {
+       override func viewDidDisappear(_ animated: Bool) {
             super.viewDidDisappear(animated)
             fetchedResultsController = nil
         }
@@ -79,8 +82,9 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
             saveAction.isEnabled = false
             
             // add a text field
-            alert.addTextField { textField in textField.placeholder = "Name"
-                NotificationCentre.default.addObserver(forName: .UITextFieldTextDidChange, object: textField, queue: . main) { notif in
+            alert.addTextField { textField in
+                textField.placeholder = "Name"
+                NotificationCenter.default.addObserver(forName: .UITextFieldTextDidChange, object: textField, queue: .main) { notif in
                     if let text = textField.text, !text.isEmpty {
                         saveAction.isEnabled = true
                     } else {
@@ -104,8 +108,8 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
         }
         // MARK: delets the notebook at the specified index path
         func deleteNotebook(at indexPath: IndexPath) {
-            let notebookToDelete = fetchResultController.object(at: indexpath)
-            dataControler.viewContext.delete(notebookToDelete)
+            let notebookToDelete = fetchResultController.object(at: indexPath)
+            dataController.viewContext.delete(notebookToDelete)
             try? dataController.viewContext.save()
             
         }
@@ -131,10 +135,10 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
             return fetchedResultsController.sections?[section].numberOfObjects ?? 0
         }
         
-        func tableView(_ tableView: UITableView,cellForRowAt indexPath) ->
+    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) ->
             UITableViewCell {
                 let aNotebook = fetchedResultsController.object(at: indexPath)
-                let cell = tableView.dequeueReusableCell(withIdentifier: NotebookCell.defaultResueIdentifier,, for: indexPath) as! NotebookCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: NotebookCell.defaultResueIdentifier, for: indexPath) as! NotebookCell
                 
                 // configure cell
                 cell.nameLabel.text = aNotebook.name
@@ -204,5 +208,5 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
             tableView.endUpdates()
         }
 }
-}
+
 
