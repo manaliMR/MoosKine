@@ -87,7 +87,7 @@ extension NoteDetailsViewContoller: UITextViewDelegate {
     }
     
 /// MARK: Toolbar
-func makeToolbarItem() -> [UIBarButtonItem] {
+func makeToolbarItems() -> [UIBarButtonItem] {
     let trash = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector (deleteTapped(sender:)))
     let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     let bold = UIBarButtonItem(image: <#T##UIImage?#>, style: .plain, target: self, action: #selector(boldTapped(sender:)))
@@ -99,7 +99,7 @@ func makeToolbarItem() -> [UIBarButtonItem] {
     
     /// configure the current toolbar
     func configureToolbarItems() {
-        toolbarItems = makeToolbarItem()
+        toolbarItems = makeToolbarItems()
         navigationController?.setToolbarHidden(false, animated: false)
     }
     
@@ -108,7 +108,7 @@ func makeToolbarItem() -> [UIBarButtonItem] {
     func textViewInputAccessoryView() {
 
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 44))
-        toolbar.items = makeToolbarItem()
+        toolbar.items = makeToolbarItems()
         textView.inputAccessoryView = toolbar
     }
     
