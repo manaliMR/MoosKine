@@ -29,7 +29,7 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
         do {
             try fetchedResultsController.performFetch()
         } catch {
-            fatalError("The fetch cou;d not be performed: \(error.localizedDescription)")
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
     

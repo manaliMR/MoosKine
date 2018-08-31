@@ -177,7 +177,7 @@ class NotesListVewController: UIViewController, UITableViewDataSource {
             case .insert: tableView.insertSections(indexSet, with: .fade)
             case .delete: tableView.deleteSections(indexSet, with: .fade)
             case .update, .move:
-                fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .deleet should be possible.")
+                fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
             }
         }
         
@@ -189,18 +189,6 @@ class NotesListVewController: UIViewController, UITableViewDataSource {
             tableView.endUpdates()
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

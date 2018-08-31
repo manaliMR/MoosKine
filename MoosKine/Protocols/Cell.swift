@@ -6,4 +6,20 @@
 //  Copyright © 2018 Manali Rami. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol Cell: class {
+    
+    // a default resue identifier for the cell class
+    
+    static var defaultReuseIdentifier: String { get }
+    
+}
+
+extension Cell {
+    
+    static var defaultResuseIdentifier: String {
+        
+        return "\(self)"
+    }
+}

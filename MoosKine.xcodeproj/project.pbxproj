@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10170C32138DD4800FA6D4A /* Pathifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10170C22138DD4800FA6D4A /* Pathifier.swift */; };
 		D10C55172128FC6E0097716E /* MoosKine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D10C55152128FC6E0097716E /* MoosKine.xcdatamodeld */; };
 		D10C892D2124EF7F0030F3F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C892C2124EF7F0030F3F1 /* AppDelegate.swift */; };
 		D10C892F2124EF7F0030F3F1 /* NotebooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C892E2124EF7F0030F3F1 /* NotebooksListViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D10170C22138DD4800FA6D4A /* Pathifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathifier.swift; sourceTree = "<group>"; };
 		D10C55162128FC6E0097716E /* MoosKine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoosKine.xcdatamodel; sourceTree = "<group>"; };
 		D10C89292124EF7F0030F3F1 /* MoosKine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoosKine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10C892C2124EF7F0030F3F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D10C89592128A1640030F3F1 /* DataContoller.swift */,
+				D10170C22138DD4800FA6D4A /* Pathifier.swift */,
 				D10C55152128FC6E0097716E /* MoosKine.xcdatamodeld */,
 			);
 			path = "Managed Object Extensions";
@@ -270,6 +273,7 @@
 				D10C892F2124EF7F0030F3F1 /* NotebooksListViewController.swift in Sources */,
 				D10C89552124F3750030F3F1 /* NoteDetailsViewController.swift in Sources */,
 				D10C89572124F3A00030F3F1 /* NotesListViewController.swift in Sources */,
+				D10170C32138DD4800FA6D4A /* Pathifier.swift in Sources */,
 				D10C895F2128A1CD0030F3F1 /* NoteCell.swift in Sources */,
 				D10C89622128A2200030F3F1 /* Cell.swift in Sources */,
 				D10C895D2128A1B50030F3F1 /* NotebookCell.swift in Sources */,
