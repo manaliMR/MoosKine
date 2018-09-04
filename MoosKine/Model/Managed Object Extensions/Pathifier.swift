@@ -6,4 +6,80 @@
 //  Copyright © 2018 Manali Rami. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreText
+
+internal struct Pathfifier {
+    // creates a UIBezierPath from a supplied sttributed string and font
+    
+    static func makeBezierPath(for attributedString: NSAttributedString, withFont font: UIFont) -> UIBezierPath {
+        
+    
+    
+    let text = NSMutableAttributedString(string: attributedString.string)
+        text.addAttribute(NSAttributedStringKey.font, value: font, range: NSMakeRange(0, text.length))
+        
+        
+        let layoutManager = NSLayoutManager()
+        let textContainer = NSTextContainer()
+        let textStorage = NSTextStorage(attributedString: text)
+        textStorage.addLayoutManager(layoutManager)
+        layoutManager.addTextContainer(textContainer)
+        
+        // Use the layout manager to loop through the glyps, adding to a bezier
+        
+        let path = UIBezierPath()
+        let font = CTFontCreateWithFontDescriptor(font.fontDescriptor, font.pointSize, nil)
+        for glyphIndex in 0 ..< layoutManager.numberOfGlyphs {
+            let glyph = layoutManager.cgGlyph(at: glyphIndex)
+            let position = layoutManager.location(forGlyphAt: glyphIndex)
+            if let glyphPath = CTFontCreatePathForGlyph(font, glyph, nil) {
+                let glyphBezierPath = UIBezierPath(cgPath: glyphPath)
+                glyphBezierPath.apply(CGAffineTransform(translationX: position.x, y:0))
+                path.append(glyphBezierPath)
+            }
+        }
+        return path
+    }
+    
+    static func makeImage(for attributedString: NSAttributedString, withFont font: UIFont, withPatternImage patternImage: UIImage) -> UIImage {
+        let path = makeBezierPath(for: attributedString, withFont: font)
+        let bounds = path.bounds
+        let pad = CGSize(width: 4, height: 6) // Add some padding so the wide lines don't clip - should figure out the metrics for this via Core Text. :)
+        let size = CGSize(width: bounds.size.width + bounds.origin.x + pad.width, height: bounds.size.height + pad.height)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        
+        // Flip the orientation vertically
+        context?.scaleBy(x: 1, y: -1)
+        context?.translateBy(x: 0, y: -size.height)
+        
+        // Adjust positioning for the padding
+        context?.translateBy(x: -pad.width / 2, y: pad.height / 2)
+        
+        // Draw the path
+        context?.setFillColor(UIColor(patternImage: patternImage).cgColor)
+        path.fill()
+        context?.setStrokeColor(UIColor.black.cgColor)
+        path.stroke()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image!
+    }
+    
+    static func makeMutableAttributedString(for attributedString: NSAttributedString, withFont font: UIFont, withPatternImage patternImage: UIImage) -> NSMutableAttributedString {
+        
+        // converts text to image using patternimage
+        let image = Pathfifier.makeImage(for: attributedString, withFont: font, withPatternImage: patternImage)
+        
+        // creates a text attachment with the image
+        let attachment = NSTextAttachment()
+        attachment.image = image
+        
+        // converts attachment to mutable attributed string
+        let attachmentAsText = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
+        return attachmentAsText
+    }
+}
